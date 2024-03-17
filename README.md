@@ -18,7 +18,7 @@ Installation
 Clone the repository:
 
 <code>Copy code</code><br/>
-<code>git clone https://github.com/yourusername/yourproject.git</code>
+<code>https://github.com/sahildesai13/staff-management-todo</code>
 <p>Install dependencies:</p>
 <code>Copy code</code>
 <p>npm install</p>
