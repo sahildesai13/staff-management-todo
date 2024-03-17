@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee DashBoard</title>
+</head>
+<body>
+    <h1>Welcome Employee <%= data.username%>, <%= data.id%></h1>
+    <button onclick="location.href='/mytask/<%= data.id%>'">Show my Task</button>
+    <button onclick="location.href='/userLogin'">Logout</button>
+</body>
+</html>

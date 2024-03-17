@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update Task</title>
+</head>
+<body>
+    <h1>update Task</h1>
+    <form method="post">
+        <table border="1">
+            <tr>
+                <td>update Task Name :</td>
+                <td><input type="text" name="taskname" value="<%= data.taskname %>"></td>
+            </tr>
+            <tr>
+                <td>Add Employee ID :</td>    
+                <td>
+                    <select name="employee">
+                        <option value="">Select the Employee ID</option>
+                        <% employee.forEach(ele => { %>
+                            <option value="<%= ele.id %>">ID :<%= ele.id%>, name :<%= ele.username %></option>    
+                        <% }); %>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Add Start date :</td>
+                <td><input type="date" name="startdate"></td>
+            </tr>
+            <tr>
+                <td>Add End date :</td>
+                <td><input type="date" name="enddate"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Update Task</button>
+                </td>
+                <td>
+                    <a href="/adminDashboard">Back</a>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

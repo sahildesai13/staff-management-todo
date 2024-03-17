@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show All Task</title>
+    <style>
+        *, tr{
+            font-family: Arial, Helvetica, sans-serif;
+            transition: 0.3s;
+        }
+        td,th {
+            padding: 15px 20px;
+        }
+         table {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 30px #5d5b5b;
+            margin: 70px auto;
+        }
+        td,th{
+            border-bottom: 2px solid rgb(53, 53, 53);   
+        }
+        td:hover{
+            background-color: rgb(162, 212, 255);
+        }
+        tr:hover{
+            background-color: aliceblue;
+        }
+        button{
+            border-radius: 7px;
+            padding: 10px 15px;
+            font-size: 18px;
+            border: 0;
+            box-shadow: 0px 0px 5px #000000;
+            cursor: pointer;
+        }
+        button:active,button:focus{
+            scale: 0.8;
+        }
+        button:hover{
+            box-shadow: inset 0px 0px 5px #000000;
+        }
+    </style>
+</head>
+
+<body style="text-align:center; background-color:rgb(240, 235, 235);">
+    <table>
+        <tr>
+            <th>Task ID</th>
+            <th>Task Name</th>
+            <th>Employee ID</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Delete Task</th>
+            <th>Update Task</th>
+            <th>Approve Task</th>
+            <th>Status Task</th>
+        </tr>
+        <% data.forEach((ele)=> { %>
+            <tr>
+                <td>
+                    <%= ele.id %>
+                </td>
+                <td>
+                    <%= ele.taskname %>
+                </td>
+                <td>
+                    <%= ele.employee %>
+                </td>
+                <td>
+                    <%= formatDate(ele.startdate) %>
+                </td>
+                <td>
+                    <%= formatDate(ele.enddate) %>
+                </td>
+                <td>
+                    <button onclick="location.href='/deleteTask/<%= ele.id %>'">Delete</button>
+                </td>
+                <td><button onclick="location.href='/updateTask/<%= ele.id %>'">Update</button></td>
+                <td><%= ele.approved == 1 ? 'Approved' : 'Not Approved' %></td>
+                <td><%= ele.status == 1 ? 'Completed' : 'Not Completed' %></td>
+            </tr>
+            <% }) %>
+    </table>
+    <button onclick='location.href="/adminDashboard"'>Back</button>
+</body>
+
+</html>

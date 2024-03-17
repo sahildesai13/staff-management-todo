@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks</title>
+    <style>
+        *, tr{
+            font-family: Arial, Helvetica, sans-serif;
+            transition: 0.3s;
+            text-align: center;
+        }
+        td,th {
+            padding: 15px 20px;
+        }
+         table {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 30px #5d5b5b;
+            margin: 70px auto;
+        }
+        td,th{
+            border-bottom: 2px solid rgb(53, 53, 53);   
+        }
+        td:hover{
+            background-color: rgb(162, 212, 255);
+        }
+        tr:hover{
+            background-color: aliceblue;
+        }
+        button{
+            border-radius: 7px;
+            padding: 10px 15px;
+            font-size: 18px;
+            border: 0;
+            box-shadow: 0px 0px 5px #000000;
+            cursor: pointer;
+        }
+        button:active,button:focus{
+            scale: 0.8;
+        }
+        button:hover{
+            box-shadow: inset 0px 0px 5px #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Task</h1>
+    <h2>My employee ID is <%= data[0].employee %></h2>
+    <table>
+        <tr>
+            <th>Task ID</th>
+            <th>Task Name</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Approve Task</th>
+            <th>complete Task</th>
+        </tr>
+        <% data.forEach((ele)=> { %>
+            <tr>
+                <td><%= ele.id %></td>
+                <td><%= ele.taskname %></td>
+                <td><%= formatDate(ele.startdate) %></td>
+                <td><%= formatDate(ele.enddate) %></td>
+                <td>
+                    <input type="radio" name="approved_<%= ele.id %>" value="1" <%= ele.IsApproved == 1 ? 'checked' : '' %> onclick="location.href='/approved/<%= ele.id %>'">approve
+                    <input type="radio" name="approved_<%= ele.id %>" value="0" <%= ele.IsApproved == 0 ? 'checked' : '' %> onclick="location.href='/decline/<%= ele.id %>'">decline
+                  </td>
+                <td>
+                    <input type="radio" name="status_<%= ele.id %>"  <%= ele.status == 1 ? 'checked' : '' %> onclick="location.href='/complete/<%= ele.id %>'">complete
+                    <input type="radio" name="status_<%= ele.id %>"  <%= ele.status == 0 ? 'checked' : '' %> onclick="location.href='/pending/<%= ele.id %>'">pending
+                </td>
+            </tr>
+        <% })%>
+    </table>
+    <button onclick='location.href="/userLogin"'>Back</button>
+
+</body>
+
+</html>
