@@ -34,7 +34,16 @@ make 3 tables
    		<tr><td>2</td><td>emp</td></tr>
    		<tr><td>3</td><td>task</td></tr>
  	</table>
-  
+
+
+  <br/>
+  <h1>Structur of DataBase Images</h1>
+	 <h4>1.admin</h4>
+	  <img width="100%" src="https://raw.githubusercontent.com/sahildesai13/staff-management-todo/master/admin.png"><br/>
+	 <h4>2.emp</h4>
+	  <img width="100%" src="https://raw.githubusercontent.com/sahildesai13/staff-management-todo/master/emp.png"><br/>
+	 <h4>1.admin</h4>
+	  <img width="100%" src="https://raw.githubusercontent.com/sahildesai13/staff-management-todo/master/task.png"><br/>
 Configure database connection:
 
 Open config.js file.
